@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/*
+ * Palette: petrol ink on cool mist, with marigold as the one warm accent.
+ * Body text (ink on mist/white) and white on sage-deep both clear WCAG AA.
+ */
+@theme {
+  --color-ink: #12343b;
+  --color-ink-deep: #0c2328;
+  --color-ink-soft: #46636a;
+  --color-mist: #f2f7f5;
+  --color-paper: #ffffff;
+  --color-sage: #d3e6dd;
+  --color-sage-deep: #2a7560;
+  --color-marigold: #f2b134;
+  --color-line: #d5e1dd;
+  --color-danger: #b3361f;
+  --color-danger-soft: #fbe9e5;
+
+  --font-sans: "Figtree Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-mist);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-sage-deep);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
