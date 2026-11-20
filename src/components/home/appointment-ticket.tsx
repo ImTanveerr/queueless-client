@@ -14,7 +14,14 @@ const slots = [
  * A made-up booking, drawn like the paper appointment slip it replaces.
  * Decorative: the real flow lives behind login, so it is hidden from screen readers.
  */
-export function AppointmentTicket({ className }: { className?: string }) {
+export function AppointmentTicket({
+  className,
+  cutoutClassName = "bg-mist",
+}: {
+  className?: string;
+  /** Background of whatever the ticket sits on, so the perforation notches look cut out. */
+  cutoutClassName?: string;
+}) {
   return (
     <figure
       aria-hidden
@@ -55,8 +62,8 @@ export function AppointmentTicket({ className }: { className?: string }) {
       {/* Perforation between the slip and its stub */}
       <div className="relative">
         <div className="mx-6 border-t-2 border-dashed border-ink/30" />
-        <span className="absolute -left-3 -top-3 size-6 rounded-full border border-ink bg-mist [clip-path:inset(0_0_0_50%)]" />
-        <span className="absolute -right-3 -top-3 size-6 rounded-full border border-ink bg-mist [clip-path:inset(0_50%_0_0)]" />
+        <span className={cn("absolute -left-3 -top-3 size-6 rounded-full border border-ink [clip-path:inset(0_0_0_50%)]", cutoutClassName)} />
+        <span className={cn("absolute -right-3 -top-3 size-6 rounded-full border border-ink [clip-path:inset(0_50%_0_0)]", cutoutClassName)} />
       </div>
 
       <div className="flex items-center justify-between px-6 py-4 text-sm">
